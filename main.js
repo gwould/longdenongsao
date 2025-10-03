@@ -603,7 +603,7 @@ updateProgress()
 // 🎵 Load audio
 const audioLoader = new THREE.AudioLoader()
 audioLoader.load(
-    'https://assets.codepen.io/1468070/Relaxing+Japanese+Music.mp3',
+    'https://gwould.github.io/longdenongsao/assets/mid.mp3',
     (buffer) => {
         backgroundSound = new THREE.Audio(listener)
         backgroundSound.setBuffer(buffer)
