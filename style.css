@@ -1,0 +1,327 @@
+/* Enhanced CSS for Mid-Autumn Festival */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0a0a2a, #1a0033);
+  cursor: grab;
+  color: #fff;
+}
+
+.webgl,
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Enhanced Loader */
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #0a0a2a, #1a0033);
+  z-index: 1000;
+  transition: opacity 1s ease-out;
+}
+
+.loader-content {
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.moon-loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 2rem;
+}
+
+.moon {
+  width: 80px;
+  height: 80px;
+  background: #FFE4B5;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  box-shadow: 0 0 20px #FFD700, 0 0 40px rgba(255, 215, 0, 0.5);
+  animation: moon-pulse 2s infinite alternate;
+}
+
+.crater {
+  position: absolute;
+  background: #DAA520;
+  border-radius: 50%;
+}
+
+.crater:nth-child(2) {
+  width: 15px;
+  height: 15px;
+  top: 20px;
+  left: 25px;
+}
+
+.crater:nth-child(3) {
+  width: 10px;
+  height: 10px;
+  top: 45px;
+  left: 15px;
+}
+
+.crater:nth-child(4) {
+  width: 12px;
+  height: 12px;
+  top: 35px;
+  left: 50px;
+}
+
+@keyframes moon-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 20px #FFD700; }
+  100% { transform: scale(1.05); box-shadow: 0 0 30px #FFD700, 0 0 60px rgba(255, 215, 0, 0.3); }
+}
+
+.loader-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.loader-content p {
+  margin-bottom: 1.5rem;
+  color: #FFE4B5;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #FF8C00, #FFD700);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* UI Controls */
+.ui-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.ui-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ui-btn:hover {
+  background: rgba(255, 215, 0, 0.8);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Information Panel */
+.info-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  padding: 2rem;
+  z-index: 20;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.info-panel.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.info-content h2 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.info-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #FFE4B5;
+}
+
+.festival-symbols {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5rem 0;
+}
+
+.symbol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.symbol-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.instruction {
+  text-align: center;
+  font-style: italic;
+  color: #FFA500;
+  margin-top: 1.5rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+}
+
+/* Mobile Notice */
+.mobile-notice {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFD700;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 15;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  display: none;
+}
+
+.mobile-notice.active {
+  display: block;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.mobile-notice button {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ui-container {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .ui-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .loader-content {
+    margin: 0 1rem;
+    padding: 1.5rem;
+  }
+  
+  .loader-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .festival-symbols {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .mobile-notice {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ui-container {
+    flex-direction: row;
+    bottom: 10px;
+    top: auto;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  
+  .info-panel {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}

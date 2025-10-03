@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive 3D Mid-Autumn Festival Experience">
+    <link rel="stylesheet" href="style.css">
+    <title>Mid-Autumn Festival Celebration</title>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="moon-loader">
+                <div class="moon"></div>
+                <div class="crater"></div>
+                <div class="crater"></div>
+                <div class="crater"></div>
+            </div>
+            <h1>Mid-Autumn Festival</h1>
+            <p>Loading the celebration...</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Scene -->
+    <canvas class="webgl"></canvas>
+    
+    <!-- UI Controls -->
+    <div class="ui-container">
+        <button id="music-toggle" class="ui-btn">🔊 Music</button>
+        <button id="info-toggle" class="ui-btn">ℹ️ Info</button>
+        <button id="fullscreen-toggle" class="ui-btn">⛶ Fullscreen</button>
+    </div>
+
+    <!-- Information Panel -->
+    <div id="info-panel" class="info-panel">
+        <div class="info-content">
+            <button id="close-info" class="close-btn">×</button>
+            <h2>Mid-Autumn Festival</h2>
+            <p>The Mid-Autumn Festival, also known as the Moon Festival, is a traditional festival celebrated in Vietnamese and Chinese culture.</p>
+            <p>Families gather to admire the bright moon, eat mooncakes, and light colorful lanterns.</p>
+            <div class="festival-symbols">
+                <div class="symbol">
+                    <div class="symbol-icon">🌕</div>
+                    <span>Full Moon</span>
+                </div>
+                <div class="symbol">
+                    <div class="symbol-icon">🏮</div>
+                    <span>Lanterns</span>
+                </div>
+                <div class="symbol">
+                    <div class="symbol-icon">🥮</div>
+                    <span>Mooncakes</span>
+                </div>
+            </div>
+            <p class="instruction">Click on lanterns to interact with them!</p>
+        </div>
+    </div>
+
+    <!-- Mobile Controls Notice -->
+    <div id="mobile-notice" class="mobile-notice">
+        <p>Use two fingers to rotate and one finger to pan the view</p>
+        <button id="close-mobile-notice">Got it</button>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://unpkg.com/three@0.126.0/examples/js/controls/OrbitControls.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
